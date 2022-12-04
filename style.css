@@ -14,7 +14,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;    
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;    
 }
 
 :root{
@@ -28,7 +29,7 @@ body{
 }
 
 .todo__content-logo{
-    font-size: calc(2rem + 1vw);
+    font-size: calc(2rem + 0.5vw);
     text-align: center;
     padding: 3vh 8vw;
     word-spacing: 0.5rem;
@@ -37,7 +38,7 @@ body{
 
 .trash{
     position: absolute;
-    font-size: 4rem;
+    font-size: calc(2rem + 2vw);
     right: 1rem;
     margin-top: 1rem;
     padding: 2rem;
@@ -111,5 +112,17 @@ input{
 @media screen and (max-width: 600px){
     #todo__content-container{
         grid-column: container-start / container-end;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #todo__content-container{
+        width: 40rem;
+        margin: 0 auto;
+    }
+
+    #list li{
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 }
