@@ -5,17 +5,16 @@
 }
 
 body{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
+    display: grid;
+    grid-template-columns: [container-start] 1fr [center-start] minmax( 50rem, 1fr) [center-end] 1fr[container-end];
+    grid-template-rows: auto;
     justify-content: center;
     background-image: url("todo.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-family: Arial, Helvetica, sans-serif;    
 }
 
 :root{
@@ -23,9 +22,9 @@ body{
 }
 
 #todo__content-container{
+    grid-column: center-start / center-end;
     background-color: rgba(15, 15, 65, 0.3);
-    width: calc(60rem + 10vw);
-    height: 100%;
+    height: 100vh;
     position: relative;
 }
 
@@ -52,7 +51,6 @@ body{
     width: 100%;
     height: 50rem;
     padding: 2rem;
-    /* margin: 3vh 3vw; */
 }
 
 #list li{
@@ -99,7 +97,7 @@ input{
     position: absolute;
     bottom: 5rem;
     left: 10rem;
-    width: calc(45rem + 10vw);
+    width: calc(25rem + 5vw);
     height: 3rem;
     padding: 2rem;
     background-color: transparent;
@@ -109,4 +107,10 @@ input{
     outline: none;
     color: white;
     border-bottom: 2px solid;
+}
+
+@media screen and (max-width: 600px){
+    #todo__content-container{
+        grid-column: container-start / container-end;
+    }
 }
