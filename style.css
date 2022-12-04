@@ -7,7 +7,7 @@
 body{
     display: grid;
     grid-template-columns: [container-start] 1fr [center-start] minmax( 50rem, 1fr) [center-end] 1fr[container-end];
-    grid-template-rows: auto;
+    grid-template-rows: 100vh;
     justify-content: center;
     background-image: url("todo.jpg");
     background-position: center;
@@ -24,7 +24,6 @@ body{
 #todo__content-container{
     grid-column: center-start / center-end;
     background-color: rgba(15, 15, 65, 0.3);
-    height: 100vh;
     position: relative;
 }
 
