@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO-DO LIST</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="todo__content-container">
-        <p class="todo__content-logo">
-            The To Do List App
-        </p>
+      <p class="todo__content-logo">The To Do List App</p>
 
-        <i class="fa-solid fa-trash-can-arrow-up trash"></i>
+      <div class="trash">
+        <i class="fa-solid fa-trash-can-arrow-up"></i>
+        <p class="trash-text">delete all</p>
+      </div>
 
-        <ul id="list">
-           
-        </ul>
+      <ul id="list"></ul>
 
-        <i class="fa-solid fa-circle-plus add-a-todo"></i><input type="text" placeholder="Add a To Do">
+      <i class="fa-solid fa-circle-plus add-a-todo"></i
+      ><input type="text" placeholder="Add a To Do" />
     </div>
-
-</body>
-<script src="script.js"></script>
-
-<script src="https://kit.fontawesome.com/a2a8526fac.js" crossorigin="anonymous"></script>
-
+  </body>
+  <script src="script.js"></script>
+  <script
+    src="https://kit.fontawesome.com/a2a8526fac.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

@@ -51,19 +51,14 @@ function addToDo(toDo, id, done, trash) {
         ` <li class= "item">
                 <i class="fa-regular ${toDoDone}" status= "complete" id= "${id}"></i>
                 <p class = "${toDoLine}">${toDo}</p>
+                <div>
+                <i class = "far fa-edit" status= "edit" id = "${id}"></i>
                 <i class="fa-regular fa-trash-can delete" status= "delete" id = "${id}"></i>
+                </div>
         </li>`
-    // console.log(item);
     const toDoPosition = "beforeend";
     toDoList.insertAdjacentHTML(toDoPosition, item);
-    // console.log(toDoList);hi
 }
-
-// addToDo("walk the dogs", 0, false, false);
-// addToDo("walk the dogs", 0, true, false);
-// addToDo("walk the dogs", 0, true, true);
-// console.log(toDoList);
-
 
 // Adding the to do list when the enter key is pressed 
 document.addEventListener('keyup', displayToDo);
@@ -108,23 +103,28 @@ toDoList.addEventListener("click", (e) => {
         listContainer[toDoItem.id].done = listContainer[toDoItem.id].done
             ? false
             : true
-
-        // console.log(listContainer[toDoItem.id].done);
-
         toDoItem.parentNode.childNodes[3].classList.toggle(textLineThrough)
-
-        // console.log(toDoItem.parentNode.childNodes[3]);
-
         localStorage.setItem("to-do-item", JSON.stringify(listContainer))
     }
+
     if (toDoStatus === "delete") {
-        toDoItem.parentNode.parentNode.removeChild(toDoItem.parentNode)
-        // console.log(listContainer[toDoItem.id].trash);
-        listContainer[toDoItem.id].trash = listContainer[toDoItem.id].trash
-            ? false
-            : true
-        // console.log(listContainer[toDoItem.id].trash);
+        deleteToDo(toDoItem)
     }
+
+    if (toDoStatus === "edit") {
+        editToDo(toDoItem);
+        deleteToDo(toDoItem);
+    }
+
     localStorage.setItem("to-do-item", JSON.stringify(listContainer))
 
 })
+
+function editToDo(toDoItem){
+    toDoInput.value = toDoItem.parentNode.parentNode.parentNode.querySelector("p").innerHTML;
+}
+
+function deleteToDo(toDoItem){
+    toDoItem.parentNode.parentNode.parentNode.removeChild(toDoItem.parentNode.parentNode);
+    listContainer[toDoItem.id].trash = true;
+}
